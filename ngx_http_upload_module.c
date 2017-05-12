@@ -8,19 +8,19 @@
 #include <ngx_http.h>
 #include <nginx.h>
 
-#if (NGX_HAVE_OPENSSL_MD5_H)
+#if (NGX_HAVE_OPENSSL_MD5_H || NGX_OPENSSL)
 #include <openssl/md5.h>
 #else
 #include <md5.h>
 #endif
 
-#if (NGX_OPENSSL_MD5)
+#if (NGX_OPENSSL_MD5 || NGX_OPENSSL)
 #define  MD5Init    MD5_Init
 #define  MD5Update  MD5_Update
 #define  MD5Final   MD5_Final
 #endif
 
-#if (NGX_HAVE_OPENSSL_SHA1_H)
+#if (NGX_HAVE_OPENSSL_SHA1_H || NGX_OPENSSL)
 #include <openssl/sha.h>
 #else
 #include <sha.h>
